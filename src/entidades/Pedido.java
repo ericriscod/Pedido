@@ -7,14 +7,14 @@ import java.util.List;
 import entidades.enums.StatusPedido;
 
 public class Pedido {
-	
+
 	private Date momento;
 	private StatusPedido status;
-	
+
 	private Cliente cliente;
-	private List <IntemDePedido> intemDePedido = new ArrayList <>();
-	
-	public Pedido() {		
+	private List<ItemDePedido> itemDePedido = new ArrayList<>();
+
+	public Pedido() {
 	}
 
 	public Pedido(Date momento, StatusPedido status, Cliente cliente) {
@@ -47,10 +47,24 @@ public class Pedido {
 		this.cliente = cliente;
 	}
 
-	public List<IntemDePedido> getIntemDePedido() {
-		return intemDePedido;
+	public void addItem(ItemDePedido itemPedido) {
+		itemDePedido.add(itemPedido);
 	}
-	
-	
+
+	public void removeItem(ItemDePedido itemPedido) {
+		itemDePedido.remove(itemPedido);
+	}
+
+	public Double total() {
+
+		double total = 0;
+		
+		for (ItemDePedido p : itemDePedido) {
+
+			total += p.subTotal();
+		}
+
+		return total;
+	}
 
 }
