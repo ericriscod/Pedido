@@ -17,10 +17,9 @@ public class Pedido {
 	public Pedido() {
 	}
 
-	public Pedido(Date momento, StatusPedido status, Cliente cliente) {
+	public Pedido(Date momento, StatusPedido status) {
 		this.momento = momento;
 		this.status = status;
-		this.cliente = cliente;
 	}
 
 	public Date getMomento() {
@@ -47,6 +46,10 @@ public class Pedido {
 		this.cliente = cliente;
 	}
 
+	public List<ItemDePedido> getItemDePedido() {
+		return itemDePedido;
+	}
+
 	public void addItem(ItemDePedido itemPedido) {
 		itemDePedido.add(itemPedido);
 	}
@@ -58,7 +61,7 @@ public class Pedido {
 	public Double total() {
 
 		double total = 0;
-		
+
 		for (ItemDePedido p : itemDePedido) {
 
 			total += p.subTotal();

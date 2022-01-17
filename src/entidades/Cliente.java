@@ -3,12 +3,12 @@ package entidades;
 import java.util.Date;
 
 public class Cliente {
-	
+
 	private String nome;
 	private String email;
 	private Date dataDeNascimento;
-	
-	public Cliente() {		
+
+	public Cliente() {
 	}
 
 	public Cliente(String nome, String email, Date dataDeNascimento) {
@@ -40,10 +40,5 @@ public class Cliente {
 	public void setDataDeNascimento(Date dataDeNascimento) {
 		this.dataDeNascimento = dataDeNascimento;
 	}
-	
-	
-	
-	
- 
-	
+
 }

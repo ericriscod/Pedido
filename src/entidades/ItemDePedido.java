@@ -1,6 +1,9 @@
+
 package entidades;
 
 public class ItemDePedido {
+
+	Pedido pedido = new Pedido();
 
 	private Integer quantidade;
 	private Double preco;
@@ -41,8 +44,6 @@ public class ItemDePedido {
 	}
 
 	public Double subTotal() {
-
-		produto.setPreco(preco);
 
 		Double soma;
 
