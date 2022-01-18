@@ -1,10 +1,10 @@
 package entidades;
 
 public class Produto {
-	
+
 	private String nome;
 	private Double preco;
-	
+
 	public Produto() {
 	}
 
@@ -27,6 +27,13 @@ public class Produto {
 
 	public void setPreco(Double preco) {
 		this.preco = preco;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(nome + ", $" + preco);
+		return sb.toString();
 	}
 
 }

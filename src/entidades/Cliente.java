@@ -1,8 +1,11 @@
 package entidades;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Cliente {
+	
+	SimpleDateFormat sdfNascimento = new SimpleDateFormat ("dd/MM/yyyy");
 
 	private String nome;
 	private String email;
@@ -40,5 +43,14 @@ public class Cliente {
 	public void setDataDeNascimento(Date dataDeNascimento) {
 		this.dataDeNascimento = dataDeNascimento;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(nome + "(" + sdfNascimento.format(dataDeNascimento) + ") - " + email);
+		return sb.toString();
+	}
+	
+	
 
 }

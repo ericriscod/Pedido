@@ -19,12 +19,9 @@ public class Programa {
 		Locale.setDefault(Locale.US);
 
 		Scanner sc = new Scanner(System.in);
-		
+
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		SimpleDateFormat sdfAtual = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-		
-		ItemDePedido itemPedido = new ItemDePedido();
-		Produto produto = new Produto();
 
 		System.out.println("Digite os dados do cliente: ");
 		System.out.print("Nome: ");
@@ -46,34 +43,34 @@ public class Programa {
 		Date dataAtual = new Date();
 
 		Pedido pedido = new Pedido(dataAtual, StatusPedido.valueOf(status));
-		
+
 		System.out.print("Quantos itens para esta ordem? ");
 		int n = sc.nextInt();
-		
-		for(int i=1; i<=n; i++) {
-			System.out.println("\nDigite os dados do item #"+i+":");
-			
+
+		for (int i = 1; i <= n; i++) {
+			System.out.println("\nDigite os dados do item #" + i + ":");
+
 			System.out.print("Nome produto: ");
 			sc.nextLine();
 			String nomeProduto = sc.nextLine();
-			
+
 			System.out.print("Preço produto: ");
 			Double precoProduto = sc.nextDouble();
-			
+
 			System.out.print("Quantidade produto: ");
 			int quantidadeProduto = sc.nextInt();
 			
-			produto.setNome(nomeProduto);
-			produto.setPreco(precoProduto);
+			Produto produto = new Produto(nomeProduto, precoProduto);
 			
-			itemPedido.setProduto(produto);
-			itemPedido.setQuantidade(quantidadeProduto);
-		
-			
+			ItemDePedido itemPedido = new ItemDePedido(quantidadeProduto, precoProduto, produto);
+
 			pedido.addItem(itemPedido);
-			
+
 		}
-		
+
+		System.out.println("\nResumo da ordem: ");
+
+		System.out.println(pedido);
 
 	}
 
